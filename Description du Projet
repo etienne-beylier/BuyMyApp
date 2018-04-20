@@ -1,0 +1,8 @@
+Application en Js de création/gestion d'une liste de courses.
+Une fois logger sur l'application l'utilisateur arrive sur une vue représentant sa liste de courses actuelle.
+Cette vue lui permet de rajouter des entrées dans la liste, via un bouton d'ajout.
+Un geste glissé vers la droite de l'écran lui permet d'envoyer un élément de cet onglet vers l'onglet "Mon panier".
+L'onglet "Mon panier" contient les éléments qui sont dans le panier de l'utilisateur.
+Depuis cet onglet, avec un geste glissé vers la droite de l'écran, l'utilisateur supprime l'élément de la liste.
+Un geste glissé vers la gauche de l'écran permet de faire remonter les objets (depuis "mon panier" vers "ma liste").
+Lors de la cration de son compte, l'utilisateur doit uploadé une photo, soit prise sur le moment, soit importé depuis sa gallerie.
