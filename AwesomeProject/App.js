@@ -231,6 +231,8 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AppRegistry, FlatList, StyleSheet} from 'react-native';
+import ListItem from './Components/ListItem';
+import SwipeableList from './Components/SwipeableList';
 
 
 class HomeScreen extends React.Component {
@@ -241,23 +243,28 @@ class HomeScreen extends React.Component {
         <Text>Home!</Text>
       </View>*/
       <View style={styles.container}>
-        <FlatList
-          data={[
-            {key: 'Devin'},
-            {key: 'Jackson'},
-            {key: 'James'},
-            {key: 'Joel'},
-            {key: 'John'},
-            {key: 'Jillian'},
-            {key: 'Jimmy'},
-            {key: 'Julie'},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        <SwipeableList
+        data={[
+          {key: 'test'},
+          {key: 'ta mère'},
+          {key: 'ça ne va'},
+          {key: 'pas marcher'},
+          {key: 'test'},
+          {key: 'ta mère'},
+          {key: 'ça ne va'},
+          {key: 'pas marcher'},
+          {key: 'test'},
+          {key: 'ta mère'},
+          {key: 'ça ne va'},
+          {key: 'pas marcher'},
+        ]}
+        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
