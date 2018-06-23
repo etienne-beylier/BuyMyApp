@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
 });
 */
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StatusBar, Button, Alert, TextInput } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AppRegistry, FlatList, StyleSheet} from 'react-native';
@@ -236,31 +236,64 @@ import SwipeableList from './Components/SwipeableList';
 
 
 class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: '', data: [{"key": "bob"}, {"key": "tod"}]};
+  }
+
+  forceUpdateHandler() {
+    this.forceUpdate();
+  };
+
+  onPress(text) {
+//      Alert.alert('You tapped the button!')
+  console.log(text);
+  this.state.data.push({"key": text});
+  console.log(this.state.data);
+    }
 
   render() {
     return (
   /*    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:"#ffffff", }}>
         <Text>Home!</Text>
       </View>*/
+      <View style={styles.notContainer}>
+        <TextInput
+          style={{height: 40, backgroundColor: 'white'}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Button
+        onPress= {() => this.onPress(this.state.text)}
+        title="Add Item"
+        color="blue"
+        accessibilityLabel="Learn more about this purple button" />
       <View style={styles.container}>
+      <Button
+      onPress= {() => {this.forceUpdateHandler}}
+      title="Reload"
+      color="blue"
+      accessibilityLabel="Reload the view" />
         <SwipeableList
-        data={[
+        /*data={[
           {key: 'test'},
           {key: 'ta mère'},
           {key: 'ça ne va'},
           {key: 'pas marcher'},
-          {key: 'test'},
-          {key: 'ta mère'},
-          {key: 'ça ne va'},
-          {key: 'pas marcher'},
-          {key: 'test'},
-          {key: 'ta mère'},
-          {key: 'ça ne va'},
-          {key: 'pas marcher'},
-        ]}
+          {key: 'ertyh'},
+          {key: 'wxfvsdfv'},
+          {key: 'zergvzervrea'},
+          {key: 'pzffzras zrgzr'},
+          {key: 'teztzretzrtzertzertst'},
+          {key: 'ta mzrzrrtzrtzertère'},
+          {key: 'ça sdfgsdfgsdfgdsfgdsfgne va'},
+          {key: 'pas marztgfdssdfcher'},
+        ]}*/
+        data = {this.state.data}
         renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
       </View>
+        </View>
     );
   }
 }
@@ -270,6 +303,10 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    paddingTop: 22
+  },
+  notContainer: {
+    flex: 1,
+    backgroundColor: 'black',
   },
   item: {
     padding: 10,
@@ -281,9 +318,15 @@ const styles = StyleSheet.create({
 class SettingsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
+        <View style={styles.container}>
+          <SwipeableList
+            data={[
+            {key: 'no idea'},
+            {key: 'on how to make it works'},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          />
+        </View>
     );
   }
 }

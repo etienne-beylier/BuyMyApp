@@ -18,6 +18,7 @@ export default class SwipeableList extends Component {
     this.state = {
       enable: true,
       data: this.props.data,
+      dataToBasket: [],
     };
   }
 
@@ -30,10 +31,13 @@ export default class SwipeableList extends Component {
   }
 
   success(key) {
+    this.state.dataToBasket.push(key);
+    //add here a call to bdd to register the data that we just delete
+    console.log(this.state.dataToBasket);
     const data = this.state.data.filter(item => item.key !== key);
-    this.setState({
-      data,
-    });
+      this.setState({
+        data,
+      });
   }
 
   setScrollEnabled(enable) {
