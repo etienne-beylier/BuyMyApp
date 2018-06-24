@@ -89,10 +89,11 @@ public class ListBasketController {
 	   */
 	  @RequestMapping("/itembasket/update")
 	  @ResponseBody
-	  public String updateBasket(long id, String name) {
+	  public String updateBasket(long id, String name, String username) {
 	    try {
 	      Basket Basket = userBasket.findOne(id);
 	      Basket.setName(name);
+	      Basket.setUserName(username);
 	      userBasket.save(Basket);
 	    }
 	    catch (Exception ex) {

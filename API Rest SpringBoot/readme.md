@@ -1,8 +1,5 @@
 ## Using MySQL in Spring Boot via Spring Data JPA and Hibernate
 
-See here for more informations:
-http://blog.netgloo.com/2014/10/27/using-mysql-in-spring-boot-via-spring-data-jpa-and-hibernate/
-
 ### Build and run
 
 #### Configurations
@@ -30,7 +27,27 @@ Import as *Existing Maven Project* and run it as *Spring Boot App*.
 - Run the application and go on http://localhost:8080/
 - Use the following urls to invoke controllers methods and see the interactions
   with the database:
-    * `/create?email=[email]&name=[name]`: create a new user with an auto-generated id and email and name as passed values.
-    * `/delete?id=[id]`: delete the user with the passed id.
-    * `/get-by-email?email=[email]`: retrieve the id for the user with the passed email address.
-    * `/update?id=[id]&email=[email]&name=[name]`: update the email and the name for the user indentified by the passed id.
+  
+	Method for user:
+	/user/all 														"Return Json"
+	/user/create?password=<password>&name=<name>
+	/user/delete?id=<id>
+	/user/update?id=<id>&password=<password>&name=<name>
+	/user/get-by-name?name=<name>
+	
+	
+	Method for itemshop:
+	/itemshop/all														"Return Json"
+	/itemshop/create?name=<name>&username=<username>
+	/itemshop/delete?id=<id>
+	/itemshop/update?id=<id>&name=<name>&username=<username>
+	/itemshop/get-by-name?name=<name>
+	
+	
+	
+	Method for itembasket:
+	/itembasket/all 														"Return Json"
+	/itembasket/create?name=<name>&username=<username>
+	/itembasket/delete?id=<id>
+	/itembasket/update?id=<id>&name=<name>&username=<username>
+	/itembasket/get-by-name?name=<name>

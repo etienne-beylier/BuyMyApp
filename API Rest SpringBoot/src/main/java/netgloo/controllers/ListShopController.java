@@ -91,10 +91,11 @@ public class ListShopController {
 	   */
 	  @RequestMapping("/itemshop/update")
 	  @ResponseBody
-	  public String updateShop(long id, String name) {
+	  public String updateShop(long id, String name, String username) {
 	    try {
 	      Shop shop = userShop.findOne(id);
 	      shop.setName(name);
+	      shop.setUserName(username);
 	      userShop.save(shop);
 	    }
 	    catch (Exception ex) {
